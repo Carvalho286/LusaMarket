@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URL', '/hotmart-copy/');
+define('BASE_URL', '/LusaMarket/');
 define('ASSETS_URL', BASE_URL . 'assets/');
 define('PAGES_URL', BASE_URL . 'pages/');
 define('STYLES_URL', BASE_URL . 'styles/');

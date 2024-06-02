@@ -4,7 +4,7 @@ $_dbHost = "localhost";
 $_dbUser = "root";
 $_dbPassword = "";
 
-$_dbName = "storebuild";
+$_dbName = "lusamarket";
 
 $_conn= mysqli_connect($_dbHost, $_dbUser, $_dbPassword, $_dbName);
 
