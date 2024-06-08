@@ -106,8 +106,7 @@ CREATE TABLE `users` (
   `phone_number` varchar(100) NOT NULL,
   `phone_code` varchar(50) NOT NULL,
   `profile_pic` varchar(255) DEFAULT NULL,
-  `role` int(11) NOT NULL,
-  `created_at` varchar(255) NOT NULL DEFAULT current_timestamp()
+  `role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

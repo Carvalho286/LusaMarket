@@ -1,40 +1,57 @@
+/* styles/topbar.css */
 .topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #b7b0b0;
     padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 0; /* Remove border radius to make it full-width */
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in the width */
+    position: fixed; /* Fix the top bar to the top */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
 }
-.logo {
+
+body {
+    padding-top: 60px; /* Ensure the body content doesn't go under the fixed top bar */
+}
+
+.topbar .logo {
     display: flex;
     align-items: center;
 }
-.logo img {
+
+.topbar .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.topbar .logo img {
     height: 40px;
     margin-right: 10px;
-    border-radius: 50%;
 }
-.logo h1 {
+
+.topbar .logo h1 {
+    font-size: 24px;
     margin: 0;
-    font-size: 1.5em;
     color: #333;
 }
-.nav-buttons {
-    display: flex;
-    gap: 10px;
-}
-.nav-buttons a {
+
+.topbar .nav-buttons a {
+    margin-left: 15px;
     text-decoration: none;
-    color: #fff;
-    background-color: #007bff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
+    color: #007bff;
+    font-weight: bold;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: background-color 0.3s, border-color 0.3s;
 }
-.nav-buttons a:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
+
+.topbar .nav-buttons a:hover {
+    background-color: #e9ecef;
+    border-color: #dee2e6;
 }

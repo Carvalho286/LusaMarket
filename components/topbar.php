@@ -1,11 +1,19 @@
 <div class="topbar">
     <div class="logo">
-        <img src="<?php echo ASSETS_URL; ?>logo.jpg" alt="Logo">
-        <h1>LusaMarket</h1>
+        <a href="<?php echo PAGES_URL; ?>landingPage.php" class="logo-link">
+            <div class="logo">
+                <img src="<?php echo ASSETS_URL; ?>logo.jpg" alt="Logo">
+                <h1>LusoMarket</h1>
+            </div>
+        </a>
     </div>
     <div class="nav-buttons">
-        <a href="#login">Login</a>
-        <a href="#signup">Sign Up</a>
+        <?php if (basename($_SERVER['PHP_SELF']) != 'loginPage.php') : ?>
+            <a href="<?php echo PAGES_URL; ?>loginPage.php">Iniciar Sessão</a>
+        <?php endif; ?>
+        <?php if (basename($_SERVER['PHP_SELF']) != 'registerPage.php') : ?>
+            <a href="<?php echo PAGES_URL; ?>registerPage.php">Registo</a>
+        <?php endif; ?>
     </div>
 </div>
 <link rel="stylesheet" type="text/css" href="<?php echo STYLES_URL; ?>topbar.css">
