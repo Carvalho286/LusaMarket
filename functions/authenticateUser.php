@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../config.php';
 
 $_dbHost = "localhost";
 $_dbUser = "root";
@@ -33,14 +34,14 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $passwordFilter = '/^(?=.*[!@#$%^&*.-])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{8,20}$/';
 
     if (empty($email)) {
-        header("Location: ../pages/loginPage.php?error=Não preencheu o Email");
+        header("Location: " . PAGES_URL . "authentication/loginPage.php?error=Não preencheu o Email");
         exit();
     } else if (empty($password)) {
-        header("Location: ../pages/loginPage.php?error=Não preencheu a Password");
+        header("Location: " . PAGES_URL . "authentication/loginPage.php?error=Não preencheu a Password");
         exit();
     } else {
         if (!preg_match($passwordFilter, $password)) {
-            header("Location: ../pages/loginPage.php?error=Palavra-passe inválida");
+            header("Location: " . PAGES_URL . "authentication/loginPage.php?error=Palavra-passe inválida");
             exit();
         }
 
@@ -53,56 +54,64 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
             if ($row['email'] === $email && $row['password'] === $hashedPassword) {
                 if ($row['role'] == 1){
+                    $_SESSION['id'] = $row['id'];
                     $_SESSION['name'] = $row['name'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['address'] = $row['address'];
                     $_SESSION['postal_code'] = $row['postal_code'];
-                    $_SESSION['city'] = $row['country'];
+                    $_SESSION['city'] = $row['city'];
                     $_SESSION['country'] = $row['country'];
                     $_SESSION['phone_code'] = $row['phone_code'];
                     $_SESSION['phone_number'] = $row['phone_number'];
                     $_SESSION['profile_pic'] = $row['profile_pic'];
+                    $_SESSION['role'] = $row['role'];
 
-                    header("Location: ../pages/loggedPage.php");
+                    header("Location: " . PAGES_URL . "user/loggedPage.php");
                     exit();
                 } else if ($row['role'] == 2) {
+                    $_SESSION['id'] = $row['id'];
                     $_SESSION['name'] = $row['name'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['address'] = $row['address'];
                     $_SESSION['postal_code'] = $row['postal_code'];
-                    $_SESSION['city'] = $row['country'];
+                    $_SESSION['city'] = $row['city'];
                     $_SESSION['country'] = $row['country'];
                     $_SESSION['phone_code'] = $row['phone_code'];
                     $_SESSION['phone_number'] = $row['phone_number'];
                     $_SESSION['profile_pic'] = $row['profile_pic'];
+                    $_SESSION['role'] = $row['role'];
 
-                    header("Location: ../pages/affiliatePage.php");
+                    header("Location: " . PAGES_URL . "affiliate/affiliatePage.php");
                     exit();
                 } else if ($row['role'] == 3) {
+                    $_SESSION['id'] = $row['id'];
                     $_SESSION['name'] = $row['name'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['address'] = $row['address'];
                     $_SESSION['postal_code'] = $row['postal_code'];
-                    $_SESSION['city'] = $row['country'];
+                    $_SESSION['city'] = $row['city'];
                     $_SESSION['country'] = $row['country'];
                     $_SESSION['phone_code'] = $row['phone_code'];
                     $_SESSION['phone_number'] = $row['phone_number'];
                     $_SESSION['profile_pic'] = $row['profile_pic'];
+                    $_SESSION['role'] = $row['role'];
 
-                    header("Location: ../pages/sellerPage.php");
+                    header("Location: " . PAGES_URL . "seller/sellerPage.php");
                     exit();
                 } else {
+                    $_SESSION['id'] = $row['id'];
                     $_SESSION['name'] = $row['name'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['address'] = $row['address'];
                     $_SESSION['postal_code'] = $row['postal_code'];
-                    $_SESSION['city'] = $row['country'];
+                    $_SESSION['city'] = $row['city'];
                     $_SESSION['country'] = $row['country'];
                     $_SESSION['phone_code'] = $row['phone_code'];
                     $_SESSION['phone_number'] = $row['phone_number'];
                     $_SESSION['profile_pic'] = $row['profile_pic'];
+                    $_SESSION['role'] = $row['role'];
 
-                    header("Location: ../pages/adminPage.php");
+                    header("Location: " . PAGES_URL . "admin/adminPage.php");
                     exit();
                 }
             }
